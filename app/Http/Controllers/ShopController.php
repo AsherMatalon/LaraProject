@@ -54,12 +54,17 @@ class ShopController extends Controller
       Self::$data['title'].="Cart";
       Self::$data["CartContent"]= json_decode((Cart::getContent()->toJson()));
       $order= (DB::select('SELECT * FROM orders ORDER BY ID DESC LIMIT 1'));
-      $order = (array)(json_decode(json_encode($order["0"]), true))['content'];
-      $order =(array)(json_decode(json_encode($order["0"]), true));
-      $order= (array)(json_decode($order[0])) ;
-      $order = (array)$order;
+    //   dd(json_decode($order[0]->content));
+        $order=json_decode($order[0]->content);
+        // foreach($order as $item){
+        //     dd($item);
+        // }
+    //   $order = (array)(json_decode(json_encode($order["0"]), true))['content'];
+    //   $order =(array)(json_decode(json_encode($order["0"]), true));
+    //   $order= (array)(json_decode($order[0])) ;
+    //   $order = (array)$order;
 
-     //dd($order);
+
     //   echo "<pre>";
     //   var_dump($order);die;
       self::$data["LastOrderSaved"]=$order;

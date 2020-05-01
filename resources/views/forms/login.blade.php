@@ -5,8 +5,8 @@
 
 @section('content')
 <div <class="container">
-  <div class="row pt-3">
-        <h1>Please Sign In </h1>
+  <div class="row pt-2">
+        <h1> Please Sign In </h1>
   </div>
 </div>
 
@@ -32,7 +32,7 @@
             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign in">
           </form>
           </div>
-            
+
           </div>
     </div>
   </div>

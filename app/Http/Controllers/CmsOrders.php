@@ -16,8 +16,16 @@ class CmsOrders extends Controller
     public function index()
     {
         self::$data['title'].="orders";
-     self::$data['orders'] = DB::select('select * from orders ' );
-     return view ("cms.orders",self::$data);
+        // self::$data['orders'] = DB::select('select * from orders ' );
+        $orders=DB::select('select * from orders ' );
+         //dd($orders);
+        // $orders=json_decode($orders[0]->content);
+        // foreach($orders as $item){
+       // dd($orders);
+        //  }
+        self::$data['orders']=$orders;
+        return view ("cms.orders",self::$data);
+
     }
 
     /**

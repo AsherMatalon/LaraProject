@@ -9,14 +9,16 @@ class payment extends Model {
 
     public static function payIt() {
 
-        $payInfo = Session::get('orderId')->toArray();
+        $payInfo = Session::get('orderId');
+        // dd(json_decode($payInfo->content));
         $payInfoDe = json_decode($payInfo['content']);
+        // dd($payInfoDe);
         $payInfoDe = json_decode(json_encode($payInfoDe), true);
         $payInfoDe = array_shift($payInfoDe);
 
 
-        $payUserInfo = json_encode($payInfoDe);
-        $r = json_decode($payUserInfo);
+
+
 
 
 

@@ -45,11 +45,19 @@
   <?php $counter = 1 ;?>
   @foreach($orders as $data)
     <tr>
-      <th scope="row">{{$data->id}}</th>
-      <th scope="row">{{$data->user_id}}</th>
-      <th scope="row">{{$data->content}}</th>
-      <th scope="row">{{$data->subtotal}}</th>
-      <th scope="row">{{$data->created_at}}</th>
+      <td scope="row">{{$data->id}}</td>
+      <td scope="row">{{$data->user_id}}</td>
+      <td scope="row">
+      @foreach (json_decode(($data->content)) as $order )
+       Name: {{$order->name}},
+       Price: {{$order->price}},
+       Qty: {{$order->quantity}}<br>
+      @endforeach
+      </td>
+
+
+      <td scope="row">{{$data->subtotal}}</td>
+      <td scope="row">{{$data->created_at}}</td>
 
     </tr>
   @endforeach

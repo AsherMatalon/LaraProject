@@ -48,14 +48,14 @@ public static function ValidateUesr(SignInRequest $request) {
                 session::put("is_admin",true);
             }
             return redirect('/');
-       } 
-       
+       }
+
    }
    return redirect('user/login')->withErrors("invalid emaillllllll or password",'login');
 }
 public static function SignUpUser(SignUpRequest $request){
     if(User::SaveUser($request)){
-        session::flash("sm","you sign up successfully please sign in"); 
+        session::flash("sm","you sign up successfully please sign in");
         return redirect('user/login');
     }
 }
